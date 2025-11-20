@@ -1,23 +1,43 @@
-// src/App.tsx
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/pages/Layout";
-import Home from "./components/pages/Home";
-import Carrinho from "./components/pages/Carrinho";
-import Perfil from "./components/pages/Perfil";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Carrinho from "./pages/Carrinho";
+import Perfil from "./pages/Perfil";
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
+
 import { CartProvider } from "./context/CartContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
+
   return (
+    
     <CartProvider>
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
+        <Routes>
+
+          <Route path="/" element={<Navigate to="/home" />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+
+          <Route 
+            element={
+              <ProtectedRoute>
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="/home" element={<Home />} />
             <Route path="/carrinho" element={<Carrinho />} />
             <Route path="/perfil" element={<Perfil />} />
-          </Routes>
-        </Layout>
+          </Route>
+
+        </Routes>
       </BrowserRouter>
     </CartProvider>
   );
