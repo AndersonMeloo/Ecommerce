@@ -3,11 +3,14 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { mainRouter } from './routes/main'
 import dotenv from 'dotenv'
+import { appConfig } from './config/app'
 
 dotenv.config()
 
+appConfig.validate();
+
 const server = express()
-const PORT = process.env.PORT || 5000
+const PORT = appConfig.port
 
 server.use(helmet())
 server.use(cors())
@@ -17,6 +20,6 @@ server.use(express.json())
 server.use(mainRouter)
 
 server.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${process.env.BASE_URL}`)
+    console.log(`Servidor Rodando: ${appConfig.baseURL}`)
     console.log(`Porta: ${PORT}`)
 })
