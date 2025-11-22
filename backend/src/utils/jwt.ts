@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken"
 import { appConfig } from "../config/app"
 
-export const createJWT = (slug: string) => {
+export const createJWT = (id: string) => {
 
     return jwt.sign(
 
-        { slug },
+        { id },
         appConfig.jwtSecret as string
     )
 }
