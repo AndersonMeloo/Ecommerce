@@ -2,32 +2,36 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
- 
+
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
 }
- 
-model User {
-  id                                                                String          @map("_id") @id @default(auto()) @db.ObjectId
-  name                                                              String?
-  email                                                             String?                     @unique
-  emailVerified                                                     DateTime?
-  image                                                             String?
-  slug                                                              String?                     @unique
-  avatar                                                            String?
-  cover                                                             String?
-  bio                                                               String?
-  link                                                              String?
-  password      String?         
-  accounts                                                          Account[]
-  sessions                                                          Session[]
-  Authenticator                                                     Authenticator[]
 
-  createdAt                                                         DateTime                    @default(now())
-  updatedAt                                                         DateTime                    @updatedAt
+model User {
+  id            String          @map("_id") @id @default(auto()) @db.ObjectId
+  name          String?
+  email         String                      @unique
+  emailVerified DateTime?
+
+  image         String?
+
+  // slug          String?                     @unique
+
+  // avatar        String?
+  // cover         String?
+  // bio           String?
+  // link          String?
+
+  password      String
+  accounts      Account[]
+  sessions      Session[]
+  Authenticator Authenticator[]
+
+  createdAt     DateTime                    @default(now())
+  updatedAt     DateTime                    @updatedAt
 }
- 
+
 model Account {
   id                String   @map("_id") @id @default(auto()) @db.ObjectId
   userId            String               @db.ObjectId
@@ -49,7 +53,7 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
- 
+
 model Session {
   id           String   @map("_id") @id @default(auto()) @db.ObjectId
   sessionToken String               @unique
@@ -60,7 +64,7 @@ model Session {
   createdAt    DateTime             @default(now())
   updatedAt    DateTime             @updatedAt
 }
- 
+
 model VerificationToken {
   id         String   @map("_id") @id @default(auto()) @db.ObjectId
   identifier String
@@ -69,7 +73,7 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
- 
+
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @map("_id") @id
