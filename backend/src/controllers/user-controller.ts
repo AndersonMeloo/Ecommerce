@@ -1,12 +1,12 @@
 import { Response } from "express";
 import { ExtendedRequest } from "../types/extended-request";
-import { findUserBySlug } from "../services/user";
+import { findUserById } from "../services/user";
 
 export const getUser = async (req: ExtendedRequest, res: Response) => {
 
-    const { slug } = req.params
+    const { id } = req.params
 
-    const user = await findUserBySlug(slug)
+    const user = await findUserById(id)
     if (!user) return res.json({ error: 'Usuário inexistente' })
 
 }
