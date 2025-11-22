@@ -2,61 +2,23 @@ import type { Prisma } from "../generated/prisma/client"
 import { prisma } from "../utils/prisma"
 import { getPublicURL } from "../utils/url"
 
+// Buscar o Usuário pelo E-mail
 export const findUserByEmail = async (email: string) => {
 
-    const user = await prisma.user.findFirst({
+    return prisma.user.findFirst({
         where: { email }
-    })
-
-    if (user) {
-
-        return {
-            ...user,
-            avatar: user.avatar ? getPublicURL(user.avatar) : null,
-            cover: user.cover ? getPublicURL(user.cover) : null
-        }
-    }
-
-    return null
+    });
 }
 
-export const findUserBySlug = async (slug: string) => {
+// Buscar o Usuário pelo ID
+export const findUserById  = async (id: string) => {
 
-    const user = await prisma.user.findFirst({
-
-        select: {
-            avatar: true,
-            cover: true,
-            slug: true,
-            name: true,
-            bio: true,
-            link: true
-        },
-
-        where: { slug }
-    })
-
-    if (user) {
-
-        return {
-
-            ...user,
-            avatar: user.avatar ? getPublicURL(user.avatar) : null,
-            cover: user.cover ? getPublicURL(user.cover) : null
-        }
-    }
-
-    return null
+    return prisma.user.findUnique({
+        where: { id }
+    });
 }
 
 export const createUser = async (data: Prisma.UserCreateInput) => {
 
-    const newUser = await prisma.user.create({ data })
-
-    return {
-        
-        ...newUser,
-        avatar: newUser.avatar ? getPublicURL(newUser.avatar) : null,
-        cover: newUser.cover ? getPublicURL(newUser.cover) : null
-    }
+    return prisma.user.create({ data })
 }
