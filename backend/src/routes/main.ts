@@ -9,4 +9,4 @@ export const mainRouter = Router()
 mainRouter.post('/auth/signup', authController.signup)
 mainRouter.post('/auth/signin', authController.signin)
 mainRouter.get('/user/:id', verifyJWT, userController.getUser)
-mainRouter.get('/user/notifications', verifyJWT, notificationsController.getNotifications);
+mainRouter.get('/user/:id/notifications', verifyJWT, notificationsController.getNotifications);
