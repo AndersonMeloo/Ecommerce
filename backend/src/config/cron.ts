@@ -1,5 +1,6 @@
 
 // #Lib: crontab.guru
+// #Referencia - https://www.youtube.com/watch?v=4qZd5nhajmg
 
 import { notificarPagamento } from "../cronjobs/notifyPayment"
 
