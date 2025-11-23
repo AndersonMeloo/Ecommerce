@@ -1,5 +1,7 @@
 import cron from "node-cron";
 
+// #Referencia - https://www.youtube.com/watch?v=4qZd5nhajmg
+
 // export const notificarPagamento = () => {
 
 //     // Notifica todo dia as 07h da manhã
