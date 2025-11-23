@@ -4,6 +4,7 @@ import helmet from 'helmet'
 import { mainRouter } from './routes/main'
 import dotenv from 'dotenv'
 import { appConfig } from './config/app'
+import { iniciarPagamentos } from './config/cron'
 
 dotenv.config()
 
@@ -22,4 +23,5 @@ server.use(mainRouter)
 server.listen(PORT, () => {
     console.log(`Servidor Rodando: ${appConfig.baseURL}`)
     console.log(`Porta: ${PORT}`)
+    iniciarPagamentos()
 })
