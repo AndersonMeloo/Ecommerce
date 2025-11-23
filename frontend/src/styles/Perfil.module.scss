@@ -1,0 +1,32 @@
+.containerUser {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    h1 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: .9rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+
+    ul {
+
+        li {
+            font-size: .9rem;
+            font-family: 'Nunito', sans-serif;
+        }
+    }
+}

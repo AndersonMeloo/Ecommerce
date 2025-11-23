@@ -1,268 +1,111 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f3f4f6;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+::-webkit-scrollbar {
+  width: 12px;
 
-  .navButton {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    background-color: #000;
-    color: white;
-    text-decoration: none;
-    transition: .3s ease-in-out;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  .containerLinks {
-
-    a {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: .2rem  ;
-    }
+  @media (max-width: 768px) {
+    width: 8px;
   }
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
-.main {
-  flex: 1;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8E5CFF 0%, #6CC5FF 100%);
+  border-radius: 10px;
+  border: 1px solid white;
 
-.grid {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.addButton {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  background-color: #000;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: .3s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.cartItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  background: white;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-.removeButton {
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  background-color: #dc2626;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: .3s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.loginContainer {
-  max-width: 400px;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  .loginTitle {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .loginInput {
-    padding: 10px;
-    border: 1px solid #ccc;
+  @media (max-width: 768px) {
     border-radius: 6px;
-    font-size: 16px;
-  }
-
-  .loginButton {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
-
-  .loginError {
-    color: red;
-    text-align: center;
   }
 }
 
-.loginContainer {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 40px 30px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6CC5FF 0%, #8E5CFF 100%);
 }
 
-.loginTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #333;
-  text-align: center;
-}
-
-
-.loginInput {
-  width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.2s ease-in-out;
-
-  &:focus {
-    outline: none;
-    border-color: #0070f3;
-    box-shadow: 0 0 5px rgba(0, 112, 243, 0.3);
-  }
-}
-
-.loginButton {
-  width: 100%;
-  padding: 12px;
-  background-color: #0070f3;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #005bcc;
-  }
-
-  &:disabled {
-    background-color: #aac4f2;
-    cursor: not-allowed;
-  }
-}
-
-.loginError {
-  color: #ff4d4f;        
-  background-color: #fff1f0; 
-  border: 1px solid #ffccc7; 
-  padding: 8px 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-align: center;
-  max-width: 100%;
-  word-break: break-word;
-  transition: all 0.2s ease-in-out;
-}
-
-@media (max-width: 500px) {
-  .loginContainer {
-    padding: 30px 20px;
-  }
-
-  .loginTitle {
-    font-size: 1.5rem;
-  }
-
-  .loginInput,
-  .loginButton {
-    font-size: 0.95rem;
-  }
-}
-
-.logoutButton {
-  background: none;
-  border: none;
-  color: #666;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 4px;
+body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  height: 100vh;
+  background: linear-gradient(45deg, #6CC5FF 20%, #8E5CFF 80%);
 
-  &:hover {
-    background-color: #f0f0f0;
-    color: #e74c3c;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
   }
 }
 
-.containerLinks {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   background-color: #f3f4f6;
 
-.navButton {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+//   @media (max-width: 768px) {
+//     min-height: auto;
+//   }
+// }
+
+// .main {
+//   flex: 1;
+//   padding: 2rem;
+//   max-width: 1200px;
+//   margin: 0 auto;
+
+//   @media (max-width: 768px) {
+//     padding: 1rem;
+//   }
+// }
+
+.containerCarrinho {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+
+
+  h1 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: .4rem 0;
+
+    span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+
+    button {
+      color: #fff;
+      padding: .4rem;
+      background-color: #ff4343;
+      border-radius: .8rem;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
 }

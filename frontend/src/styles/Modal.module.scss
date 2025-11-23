@@ -1,0 +1,93 @@
+.containerModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+
+    .containerModalConteudo {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+
+        h2 {
+            margin: 1rem 0 0.5rem;
+            color: #333;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .containerModalIcon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+
+            &.sucesso {
+                color: #28a745;
+            }
+
+            &.erro {
+                color: #dc3545;
+            }
+
+            &.informacao {
+                color: #17a2b8;
+            }
+        }
+
+        .containerModalBotao {
+            background: linear-gradient(135deg, #6CC5FF 0%, #8E5CFF 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
