@@ -1,4 +1,3 @@
-// src/components/pages/Home.tsx
 import styles from '../styles/Produtos.module.scss';
 import { useCar } from '../context/CarContext';
 
