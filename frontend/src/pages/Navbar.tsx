@@ -1,13 +1,11 @@
-// src/components/pages/Navbar.tsx
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import styles from '../styles/App.module.scss';
+import { useCar } from "../context/CarContext";
+import styles from '../styles/NavBar.module.scss';
 import { ShoppingCart, LogOut } from "lucide-react";
 
 export default function Navbar() {
 
-  const { carrinho } = useCart();
+  const { carrinho } = useCar();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,11 +19,11 @@ export default function Navbar() {
 
   return (
 
-    <nav className={styles.navbar}>
+    <nav className={styles.containerNavBar}>
 
       <Link to="/home" className={styles.logo}>Controle de Pagamentos</Link>
 
-      <div className={styles.containerLinks}> 
+      <div className={styles.containerLinksNavBar}> 
         <Link to="/carrinho" className={styles.navButton}>
           Carrinho ({carrinho.length}) <ShoppingCart />
         </Link>
@@ -34,7 +32,7 @@ export default function Navbar() {
         
         <button 
           onClick={handleLogout} 
-          className={styles.logoutButton}
+          className={styles.buttonLogout}
           title="Sair"
         >
           <LogOut size={20} />

@@ -1,34 +1,43 @@
 // src/components/pages/Home.tsx
-import React from "react";
-import styles from '../styles/App.module.scss';
-import { useCart } from '../context/CartContext';
+import styles from '../styles/Produtos.module.scss';
+import { useCar } from '../context/CarContext';
 
-const produtos = [
-  { id: 1, nome: "Produto A", preco: 49.9 },
-  { id: 2, nome: "Produto B", preco: 79.9 },
-  { id: 3, nome: "Produto C", preco: 120.0 },
+const cars = [
+  {
+    id: 1,
+    nome: "Golf GTI",
+    preco: 120.000,
+  },
+  {
+    id: 2,
+    nome: "Jetta GLI",
+    preco: 200.000,
+  },
+  {
+    id: 3,
+    nome: "Audi A3",
+    preco: 80.00,
+  }
 ];
 
 export default function Home() {
 
-  const { adicionar } = useCart();
+  const { adicionar } = useCar();
 
   return (
 
-    <div className={styles.grid}>
+    <div className={styles.products}>
+      {cars.map(p => (
 
-      {produtos.map(p => (
-
-        <div key={p.id} className={styles.card}>
+        <div key={p.id} className={styles.productsCard}>
           <h2>{p.nome}</h2>
           <p>R$ {p.preco.toFixed(2)}</p>
-          <button className={styles.addButton} onClick={() => adicionar(p)}>
+          <button className={styles.productsButton} onClick={() => adicionar(p)}>
             Adicionar ao carrinho
           </button>
         </div>
-        
+
       ))}
-      
     </div>
   );
 }

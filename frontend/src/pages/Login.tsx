@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from '../styles/App.module.scss';
-import { authAPI } from "../services/auth"; 
+import styles from '../styles/Login-Register.module.scss';
+import { authAPI } from "../services/auth";
 
 export default function Login() {
 
@@ -17,7 +17,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      
+
       const data = await authAPI.login({
         email: form.email,
         password: form.password
@@ -30,7 +30,7 @@ export default function Login() {
       navigate("/home");
 
     } catch (err: any) {
-     
+
       setError(err.message || "Erro em entrar");
 
     } finally {
@@ -41,9 +41,15 @@ export default function Login() {
 
   return (
 
-    <div className={styles.loginContainer}>
+    <div className={styles.containerLogin}>
 
-      <h1 className={styles.loginTitle}>Login</h1>
+      <div className={styles.containerCircle}>
+        <div className={styles.circles}></div>
+        <div className={styles.circles}></div>
+        <div className={styles.circles}></div>
+      </div>
+
+      <h1 className={styles.login}>Login</h1>
 
       <input
         type="email"
@@ -70,7 +76,7 @@ export default function Login() {
       <p>
         Não tem conta? <Link to="/cadastro">Cadastre-se</Link>
       </p>
-      
+
     </div>
   );
 }

@@ -1,25 +1,27 @@
-// src/components/pages/Carrinho.tsx
-import React from "react";
+import { useCar } from '../context/CarContext';
 import styles from '../styles/App.module.scss';
-import { useCart } from '../context/CartContext';
 
 export default function Carrinho() {
 
-  const { carrinho, remover } = useCart();
+  const { carrinho, remover } = useCar();
 
-  const total = carrinho.reduce((acc, i) => acc + i.preco, 0);
+  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
 
   return (
 
-    <div>
+    <div className={styles.containerCarrinho}>
 
       <h1>Carrinho</h1>
 
       {carrinho.map(item => (
 
-        <div key={item.id} className={styles.cartItem}>
+        <div key={item.carItemId} className={styles.containerCartItems}>
+          
           <span>{item.nome} - R$ {item.preco.toFixed(2)}</span>
-          <button className={styles.removeButton} onClick={() => remover(item.id)}>
+          <button
+            className={styles.removeButton}
+            onClick={() => remover(item.carItemId)}
+          >
             Remover
           </button>
         </div>

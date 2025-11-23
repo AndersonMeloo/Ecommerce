@@ -1,13 +1,12 @@
-// src/components/pages/Perfil.tsx
-import React from "react";
-import { useCart } from '../context/CartContext';
+import { useCar } from '../context/CarContext';
+import styles from '../styles/Perfil.module.scss';
 
 export default function Perfil() {
-  const { carrinho } = useCart();
+  const { carrinho } = useCar();
 
-  return (
+  return (  
 
-    <div>
+    <div className={styles.containerUser}>
       
       <h1>Perfil</h1>
       <h2>Compras realizadas:</h2>
