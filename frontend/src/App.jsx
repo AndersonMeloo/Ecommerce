@@ -9,14 +9,14 @@ import Perfil from "./pages/Perfil";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 
-import { CartProvider } from "./context/CartContext";
+import { CarProvider } from "./context/CarContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
 
   return (
     
-    <CartProvider>
+    <CarProvider>
       <BrowserRouter>
         <Routes>
 
@@ -39,6 +39,6 @@ export default function App() {
 
         </Routes>
       </BrowserRouter>
-    </CartProvider>
+    </CarProvider>
   );
 }
