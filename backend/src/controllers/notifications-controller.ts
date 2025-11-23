@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 
 const notifications = [
-    { id: 1, message: 'Pagamentos Pendentes' }
+    { id: 1, message: 'Parcelas Pendentes' }
 ]
 
 export const getNotifications = (req: Request, res: Response) => {
